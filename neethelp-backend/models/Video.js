@@ -1,21 +1,30 @@
 const mongoose = require("mongoose");
 
 const videoSchema = new mongoose.Schema({
-  title: {
+  leetcodeTitle: {
     type: String,
     required: true,
   },
-  leetcode: {
+  leetcodeID: {
     type: String,
     required: true,
   },
-  youtubeURL: {
+  youtubeTitle: {
+    type: String,
+    required: true,
+  },
+  youtubeID: {
     type: String,
     required: true,
   },
   channel: {
     type: String,
     required: true,
+  },
+  addedDate: {
+    type: Date,
+    required: true,
+    default: Date.now,
   },
 });
 
