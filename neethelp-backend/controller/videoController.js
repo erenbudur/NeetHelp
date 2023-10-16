@@ -21,7 +21,7 @@ async function addVideo(data) {
 
 async function getVideo(id) {
   try {
-    const video = await Video.find({ leetcodeID: id })
+    const video = await Video.find({ leetcodeTitle: id });
     return video;
   } catch (err) {
     throw new Error(err);

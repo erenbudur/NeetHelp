@@ -11,26 +11,46 @@ const getYoutubeVideo = async (query) => {
 
   let response = await fetch(url1);
   let data = await response.json();
-  if (data.items.length === 0) {
+  let found = false;
+  if (data.items.length > 0) {
+    if (await checkDescription(query, data.items[0].id.videoId)) {
+      found = true;
+    }
+  }
+
+  if (!found) {
     response = await fetch(url2);
     data = await response.json();
+    if (data.items.length > 0) {
+      if (await checkDescription(query, data.items[0].id.videoId)) {
+        found = true;
+      }
+    }
   }
-  if (data.items.length === 0) {
-    return null;
-  }
-  return parseVideo(data);
+  return found ? parseVideo(data) : null;
+};
+
+const checkDescription = async (query, videoId) => {
+  const descUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${youtubeAPI}`;
+  const response = await fetch(descUrl);
+  const descData = await response.json();
+  const description = descData.items[0].snippet.description;
+  const regex = `${query}`;
+  const match = description.match(regex);
+  return match != null;
 };
 
 const parseVideo = (data) => {
   const video = data.items[0];
   const videoId = video.id.videoId;
   const title = video.snippet.title;
+  const channelTitle = video.snippet.channelTitle;
   const regex = "Leetcode ([0-9]+) ";
 
   const match = title.match(regex);
   const number = match ? match[1] : null;
 
-  return { videoId, title, number };
+  return { videoId, title, number, channelTitle };
 };
 
 module.exports = { getYoutubeVideo };
