@@ -1,10 +1,19 @@
 import fetchYoutubeUrl from "./api"
 import './assets/styles.css'
+import { formatTitle,getTitlefromUrl } from "./utility"
 
-const createContent = (problemTitle) => {
+const createContent = async () => {
+    // const url = window.location.href
+    const url = 'https://leetcode.com/problems/longest-substring-without-repeating-characters/'
     const content = document.getElementById('content')
     const title = document.createElement('h1')
-    
+    const formattedTitle = getTitlefromUrl(url)
+    title.textContent = formatTitle(formattedTitle)
+    content.appendChild(title)
+
+    const iframe = await createIframe(formattedTitle)
+    content.appendChild(iframe)
+
 }
 
 
