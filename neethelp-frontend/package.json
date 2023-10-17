@@ -2,11 +2,12 @@
   "name": "neethelp-frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "build": "webpack",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.dev.js",
+    "deploy": "webpack --config webpack.prod.js",
     "lint": "npx eslint src test",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier src test --check",
@@ -16,9 +17,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^6.8.1",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
+    "html-webpack-plugin": "^5.5.3",
     "prettier": "3.0.3",
-    "webpack": "^5.88.2"
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.10.0"
   }
 }
