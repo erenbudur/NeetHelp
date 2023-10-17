@@ -11,8 +11,14 @@ const createContent = async () => {
     title.textContent = formatTitle(formattedTitle)
     content.appendChild(title)
 
+    const outerVideoContainer = document.createElement('div')
+    outerVideoContainer.classList.add('outer-video-container')
+    const videoContainer = document.createElement('div')
+    videoContainer.classList.add('video-container')
     const iframe = await createIframe(formattedTitle)
-    content.appendChild(iframe)
+    videoContainer.appendChild(iframe)
+    outerVideoContainer.appendChild(videoContainer)
+    content.appendChild(outerVideoContainer)
 
 }
 
@@ -22,13 +28,13 @@ const createContent = async () => {
 
 
 const createIframe = async (problemTitle) => {
-    const videoId = await fetchYoutubeUrl(problemTitle)
+    // const videoId = await fetchYoutubeUrl(problemTitle)
     const iframe = document.createElement('iframe')
-    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`)
+    iframe.setAttribute('src', `https://www.youtube.com/embed/4FUu1uCxEWI`)
+    // iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`)
     iframe.setAttribute('allowfullscreen', '')
     iframe.setAttribute('frameborder', '0')
-    iframe.style.width = '100%'
-    iframe.style.height = '100%'
+    
     return iframe
 }
 
