@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 require("../database/db.js");
 const { getYoutubeVideo } = require("../api/youtube.js");
+var cors = require('cors')
 
 const {
   getAllVideos,
@@ -9,7 +10,16 @@ const {
   getVideo,
 } = require("../controller/videoController.js");
 
-router.get("/:title", async (req, res) => {
+
+
+const corsOptions = {
+  origin: process.env.USER_DOMAIN,
+  optionsSuccessStatus: 200
+}
+
+
+
+router.get("/:title",cors(corsOptions), async (req, res) => {
   const title = req.params.title;
   // Attempt to get from database
   const video = await getVideo(title);
