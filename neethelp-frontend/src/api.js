@@ -3,7 +3,9 @@ const fetchYoutubeUrl = async (searchTerm) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        return data
+        console.log(data);
+        const id = data[0].youtubeID
+        return id
     }
     catch (err) {
         console.log(err)

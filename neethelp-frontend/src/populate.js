@@ -3,8 +3,9 @@ import './assets/styles.css'
 import { formatTitle,getTitlefromUrl } from "./utility"
 
 const createContent = async () => {
-    // const url = window.location.href
-    const url = 'https://leetcode.com/problems/longest-substring-without-repeating-characters/'
+    const urlx = window.location.href
+    console.log(urlx);
+    const url = 'https://leetcode.com/problems/two-sum/'
     const content = document.getElementById('content')
     const title = document.createElement('h1')
     const formattedTitle = getTitlefromUrl(url)
@@ -30,9 +31,9 @@ const createContent = async () => {
 const createIframe = async (problemTitle) => {
     const videoId = await fetchYoutubeUrl(problemTitle)
     const iframe = document.createElement('iframe')
-    // iframe.setAttribute('src', `https://www.youtube.com/embed/4FUu1uCxEWI`)
     iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`)
-    iframe.setAttribute('allowfullscreen', '')
+    iframe.setAttribute('title', 'YouTube video player')
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture')
     iframe.setAttribute('frameborder', '0')
     
     return iframe
