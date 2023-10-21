@@ -30,13 +30,25 @@ const createContent = async () => {
 
 const createIframe = async (problemTitle) => {
     const videoId = await fetchYoutubeUrl(problemTitle)
+    if (videoId === 204) {
+        const error = document.createElement('h1')
+        error.textContent = 'No video found \r\n Try again later'
+        error.style.fontWeight = '900'
+        error.style.fontSize = '3rem'
+        error.style.whiteSpace = 'pre'
+        return error
+    }
     const iframe = document.createElement('iframe')
+    iframe.setAttribute('id', 'yt-player')
     iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`)
     iframe.setAttribute('title', 'YouTube video player')
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture, fullscreen')
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;')
+    iframe.setAttribute('allowfullscreen', '')
     iframe.setAttribute('frameborder', '0')
     
     return iframe
 }
+
+
 
 export {createContent, createIframe};

@@ -1,18 +1,17 @@
 import { createContent } from "./populate";
 
-
 const createModal = async () => {
   let modal = document.createElement("dialog");
   modal.id = "modal";
-modal.style.backgroundColor = "#4a4a4a";
-modal.style.width = "minMax(600px, 80%)";
+  modal.style.backgroundColor = "#4a4a4a";
+  modal.style.width = "minMax(600px, 80%)";
+  modal.style.borderRadius = "10px";
 
   const closeContainer = document.createElement("div");
   closeContainer.style.display = "flex";
   closeContainer.style.justifyContent = "center";
   closeContainer.style.width = "100%";
-  closeContainer.style.marginTop= "10px";
-
+  closeContainer.style.marginTop = "10px";
 
   const closeButton = document.createElement("button");
 
@@ -24,15 +23,18 @@ modal.style.width = "minMax(600px, 80%)";
   closeButton.style.backgroundColor = "transparent";
   closeButton.style.cursor = "pointer";
   closeButton.style.fontWeight = "bold";
+  modal.appendChild(await createContent());
 
-  closeButton.onclick = () => {
+  closeButton.onclick = async () => {
+    
+
     modal.close();
+    modal.removeChild(modal.querySelector("#content"));
+    modal.insertBefore(await createContent(),closeContainer);
   };
 
-  
   closeContainer.appendChild(closeButton);
 
-  modal.appendChild(await createContent());
   modal.appendChild(closeContainer);
 
   document.body.appendChild(modal);
@@ -54,8 +56,8 @@ const addButton = () => {
 
 var loadfunction = window.onload;
 window.onload = function (event) {
-  window.setTimeout(createModal, 2000);
-  window.setTimeout(addButton, 2000);
+  window.setTimeout(createModal, 1000);
+  window.setTimeout(addButton, 1000);
 
   if (loadfunction) loadfunction(event);
 };
