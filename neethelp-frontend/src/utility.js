@@ -15,5 +15,9 @@ const getTitlefromUrl = (url) => {
     return match[1]
 }
 
+const getCurrentUrl =  () => {
+  return document.location.href;
+};
 
-export {formatTitle, getTitlefromUrl};
+
+export {formatTitle, getTitlefromUrl, getCurrentUrl};

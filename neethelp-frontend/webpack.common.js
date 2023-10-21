@@ -2,9 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
-  entry: "./src/index.js",
+  entry:{ 
+    index:"./src/index.js",
+    content:"./src/content.js"
+  },
   output: {
-    filename: "main.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     clean:true,
   },
@@ -23,12 +26,14 @@ module.exports = {
      
     ],
   },
+  devtool: 'inline-source-map',
   plugins:[
     new HtmlWebpackPlugin({
         
         filename: "index.html",
         inject: 'body',
         template: "./src/index.html",
+        chunks:["index"]
     }),
     new CopyPlugin({
       patterns: [
