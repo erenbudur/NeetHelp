@@ -37,7 +37,7 @@ const createModal = async () => {
 
   modal.appendChild(closeContainer);
 
-  document.body.appendChild(modal);
+  document.body.insertBefore(modal,document.body.firstChild);
 };
 
 const addButton = () => {
@@ -45,6 +45,7 @@ const addButton = () => {
 
   if (buttons) {
     let button = document.createElement("button");
+    button.setAttribute("id", "neethelp-add");
     button.innerHTML = "NeetHelp";
     button.onclick = () => {
       let modal = document.getElementById("modal");

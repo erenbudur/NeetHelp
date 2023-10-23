@@ -7,6 +7,7 @@ const createContent = async () => {
     const content = document.createElement("div")
     content.setAttribute('id', 'content')
     const title = document.createElement('h1')
+    title.setAttribute('id', 'title-neethelp')
     const formattedTitle = getTitlefromUrl(url)
     title.textContent = formatTitle(formattedTitle)
     content.appendChild(title)
@@ -32,6 +33,7 @@ const createIframe = async (problemTitle) => {
     const videoId = await fetchYoutubeUrl(problemTitle)
     if (videoId === 204) {
         const error = document.createElement('h1')
+        error.setAttribute('id', 'error')
         error.textContent = 'No video found \r\n Try again later'
         error.style.fontWeight = '900'
         error.style.fontSize = '3rem'

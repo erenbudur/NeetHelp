@@ -5,7 +5,7 @@ module.exports = {
   entry:{ 
     index:"./src/index.js",
     content:"./src/content.js",
-    background:"./src/background.js",
+    // background:"./src/background.js",
   },
   output: {
     filename: "[name].js",
