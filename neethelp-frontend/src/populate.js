@@ -31,7 +31,7 @@ const createContent = async () => {
 
 const createIframe = async (problemTitle) => {
     const videoId = await fetchYoutubeUrl(problemTitle)
-    if (videoId === 204) {
+    if (videoId === 204 || videoId === null || videoId === undefined) {
         const error = document.createElement('h1')
         error.setAttribute('id', 'error')
         error.textContent = 'No video found \r\n Try again later'
