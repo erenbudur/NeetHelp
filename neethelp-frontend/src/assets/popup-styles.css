@@ -3,6 +3,10 @@
     height: 48px;
     width: 64px;
 }
+#youtube-logo:hover{
+    cursor: pointer;
+} 
+
 #instructions{
     font-size: 26px;
     font-weight: bold;
@@ -50,6 +54,4 @@
 
 #neetcode-link:hover{
   cursor: pointer;
-  background-color: #030712;
-  box-shadow: 5px 2px 5px #3f3f46;
 }

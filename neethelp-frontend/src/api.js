@@ -3,7 +3,6 @@ import { getVideoID, setVideoID } from "./utility";
 const fetchYoutubeUrl = async (searchTerm) => {
 
   let videoId = await getVideoID(searchTerm);
-  console.log("video id is being returned", videoId);
   if (videoId) {
   
     return videoId;

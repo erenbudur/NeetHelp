@@ -33,7 +33,6 @@ const getVideoID = async (title) => {
 
 const setVideoID = async (title, videoID) => {
   chrome.storage.local.set({ [title]: videoID }, () => {
-    console.log("video id set", videoID);
   });
 };
 export { formatTitle, getTitlefromUrl, getCurrentUrl, getVideoID, setVideoID };
