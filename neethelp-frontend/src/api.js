@@ -7,7 +7,7 @@ const fetchYoutubeUrl = async (searchTerm) => {
   
     return videoId;
   } else {
-    const url = `http://localhost:3000/video/${searchTerm}`;
+    const url = `https://neethelp.onrender.com/video/${searchTerm}`;
     try {
       const response = await fetch(url);
       if (response.status === 200) {
