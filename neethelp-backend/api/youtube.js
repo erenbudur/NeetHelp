@@ -45,7 +45,7 @@ const parseVideo = (data) => {
   const videoId = video.id.videoId;
   const title = video.snippet.title;
   const channelTitle = video.snippet.channelTitle;
-  const regex = "Leetcode ([0-9]+) ";
+  const regex = "Leetcode ([0-9]+)";
 
   const match = title.match(regex);
   const number = match ? match[1] : null;
