@@ -1,0 +1,55 @@
+#youtube-logo{
+   
+    height: 48px;
+    width: 64px;
+}
+#instructions{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+#instructions span{
+    font-weight: 800;
+    color: #030712;
+}
+
+#pop-up{
+  background-color: #d1d5db;
+  width: 320px;
+  height: 280px;
+  padding: 12px;
+}
+
+#neetcode-text{
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+  color: #3f3f46;
+  margin-bottom: 24px;
+}
+
+#links-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#neetcode-link{
+  background-color: #3f3f46;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#neetcode-link:hover{
+  cursor: pointer;
+  background-color: #030712;
+  box-shadow: 5px 2px 5px #3f3f46;
+}
