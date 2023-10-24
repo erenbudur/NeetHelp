@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "NeetHelp",
+  "description": "Provides videos from NeetCode to help you with your coding problems",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["storage"]
+}
