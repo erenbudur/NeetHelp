@@ -27,7 +27,7 @@ const createPopup = () => {
         chrome.tabs.create({url: 'https://www.youtube.com/@NeetCode'});
     }
    
-    neetcodeText.textContent = 'Checkout NeetCode.io and NeetCode on youtube for more content!';
+    neetcodeText.textContent = 'Check out NeetCode.io and NeetCode on youtube for more content!';
     neetcodeLink.textContent = 'NeetCode.io';
     instructions.innerHTML = 'Click on the <span>NeetHelp</span> button to view the video solution!';
     
