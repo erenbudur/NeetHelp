@@ -7,4 +7,4 @@ The back end was created as an Express app that runs on Node.js with a MongoDB d
 
 Each part can be viewed in the appropriate subdirectory.
 
-
+You can check out the extension [here](https://chrome.google.com/webstore/detail/neethelp/cpihmjjhjckkbpnejfecaeljopiaojjh). 
